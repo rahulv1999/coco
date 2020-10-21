@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COCO</title>
+</head>
+
+<body>
+    <h1>Welcome!!!</h1>
+    <div><form  action="/upload" enctype="multipart/form-data" method="POST">
+        <input type=file name=file>
+        <input type=submit value=Upload>
+        {{text}}
+    </form></div>
+
+   <a href="{{ url_for('download', filename='data.csv') }}"><button type="submit">Download</button></a>
+
+   
+
+
+
+
+</body>
+
+</html>
