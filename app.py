@@ -12,14 +12,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('upload.html')
 
 
-@app.route('/upload',methods=['POST'])
+@app.route('/upload',methods=['GET','POST'])
 def upload_file():
-    file = request.files['file']
-    file.save(secure_filename('data.csv'))
-    return render_template('index.html',text='file uploaded')
+    if request.method == 'POST':
+        file = request.files['file']
+        file.save(secure_filename('data.csv'))
+        return render_template('upload.html',text='file uploaded')
     
 @app.route('/download')
 def download():
